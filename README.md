@@ -1,4 +1,4 @@
-# llvm-mode - Major mode for the LLVM assembler language
+# llvm-mode - Major mode for the LLVM IR language
 
 *Author:* Noah Peart <noah.v.peart@gmail.com><br>
 *URL:* [https://github.com/nverno/llvm-mode](https://github.com/nverno/llvm-mode)<br>

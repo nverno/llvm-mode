@@ -1,4 +1,4 @@
-;;; llvm-mode.el --- Major mode for the LLVM assembler language.  -*- lexical-binding: t; -*-
+;;; llvm-mode.el --- Major mode for the LLVM IR language.  -*- lexical-binding: t; -*-
 ;;
 ;; This is free and unencumbered software released into the public domain.
 ;;
@@ -265,7 +265,8 @@ With prefix, query for INSTR."
 
 (defvar llvm-mode-map
   (let ((km (make-sparse-keymap)))
-    (define-key km (kbd "M-?") #'llvm-mode-lookup-instruction-online)))
+    (define-key km (kbd "M-?") #'llvm-mode-lookup-instruction-online)
+    km))
 
 
 ;;;###autoload
