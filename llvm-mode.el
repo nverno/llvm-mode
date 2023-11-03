@@ -1,11 +1,12 @@
-;;; llvm-mode.el --- Major mode for the LLVM IR language.  -*- lexical-binding: t; -*-
+;;; llvm-mode.el --- Major mode for the LLVM IR language -*- lexical-binding: t; -*-
 ;;
 ;; This is free and unencumbered software released into the public domain.
 ;;
 ;; Author: Noah Peart <noah.v.peart@gmail.com>
 ;; URL: https://github.com/nverno/llvm-mode
-;; Package-Requires: 
+;; Package-Requires: ((emacs "25.1"))
 ;; Created: 16 February 2020
+;; Version: 0.1.0
 
 ;; This file is not part of GNU Emacs.
 ;;
@@ -56,19 +57,19 @@
 ;;; Code:
 (require 'smie)
 
-(defgroup llvm-mode nil
+(defgroup llvm nil
   "Major mode for editing llvm assembly source code."
   :group 'languages
-  :prefix "llvm-mode-")
+  :prefix "llvm-")
 
 (defcustom llvm-mode-indent-offset 2
   "Indentation column following opening braces."
-  :group 'llvm-mode
+  :group 'llvm
   :type 'integer)
 
 (defcustom llvm-mode-label-offset 0
   "Indentation column for labels."
-  :group 'llvm-mode
+  :group 'llvm
   :type 'integer)
 
 (defvar llvm-mode-lookup-instruction-uri
@@ -253,7 +254,7 @@ With prefix, query for INSTR."
     (or (and (not current-prefix-arg) (thing-at-point 'symbol))
         (read-from-minibuffer "LLVM help for: "))))
   (browse-url
-   (format  instr)))
+   (format llvm-mode-lookup-instruction-uri instr)))
 
 ;; Imenu: defines / declares / labels
 ;; XXX: remove duplicate labels??
